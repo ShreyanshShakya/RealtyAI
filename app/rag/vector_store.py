@@ -2,6 +2,7 @@
 import json
 import hashlib
 import time
+from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
 from dataclasses import dataclass
 from pathlib import Path
@@ -51,11 +52,36 @@ class VectorStore:
         self.embedding_generator = get_embedding_generator()
         self.logger = logger.bind(component="VectorStore")
         
+        # Log dependency versions for debugging
+        self._log_dependency_versions()
+        
         # Initialize ChromaDB
         self._init_chromadb()
     
+    def _log_dependency_versions(self):
+        """Log installed dependency versions for debugging deployment issues."""
+        import sys
+        import importlib
+        
+        # Import modules if available
+        modules = {}
+        for mod_name in ['chromadb', 'posthog', 'sentence_transformers', 'torch']:
+            try:
+                modules[mod_name] = importlib.import_module(mod_name)
+            except ImportError:
+                modules[mod_name] = None
+        
+        self.logger.info(
+            f"Dependency versions: "
+            f"Python={sys.version.split()[0]}, "
+            f"ChromaDB={getattr(modules.get('chromadb'), '__version__', 'unknown') if modules.get('chromadb') else 'not installed'}, "
+            f"PostHog={getattr(modules.get('posthog'), '__version__', 'unknown') if modules.get('posthog') else 'not installed'}, "
+            f"SentenceTransformers={getattr(modules.get('sentence_transformers'), '__version__', 'unknown') if modules.get('sentence_transformers') else 'not installed'}, "
+            f"Torch={getattr(modules.get('torch'), '__version__', 'unknown') if modules.get('torch') else 'not installed'}"
+        )
+    
     def _init_chromadb(self):
-        """Initialize ChromaDB client and collection."""
+        """Initialize ChromaDB client and collection with migration handling."""
         # Ensure persist directory exists
         Path(self.persist_dir).mkdir(parents=True, exist_ok=True)
         
@@ -68,10 +94,123 @@ class VectorStore:
             settings=chroma_settings
         )
         
-        # Get or create collection - handle ChromaDB 0.5.x -> 1.x migration
+        # Get or create collection with migration handling
         self.collection = self._get_or_create_collection_with_migration()
         
         self.logger.info(f"ChromaDB {CHROMADB_VERSION} initialized: {self.collection_name} at {self.persist_dir}")
+
+    def _get_or_create_collection_with_migration(self):
+        """Get or create collection with automatic migration for ChromaDB 0.5.x -> 1.x.
+        
+        Handles the KeyError: '_type' migration issue when loading collections
+        created with ChromaDB 0.5.x that have empty metadata config.
+        
+        If migration fails due to corrupted database, creates a fresh persistence
+        directory and rebuilds from source data.
+        """
+        try:
+            return self.client.get_or_create_collection(
+                name=self.collection_name,
+                metadata={"hnsw:space": "cosine"}
+            )
+        except KeyError as e:
+            if "_type" not in str(e):
+                raise
+            
+            self.logger.warning(
+                f"ChromaDB migration detected: collection '{self.collection_name}' "
+                f"has incompatible metadata format (missing '_type'). "
+                f"Attempting recovery with fresh persistence directory."
+            )
+            
+            # Attempt recovery with fresh persistence directory
+            return self._recover_with_fresh_directory()
+        except Exception as e:
+            # Handle other migration-related errors (e.g., during create_collection)
+            if "_type" in str(e):
+                self.logger.warning(
+                    f"ChromaDB migration error during collection creation: {e}. "
+                    f"Attempting recovery with fresh persistence directory."
+                )
+                return self._recover_with_fresh_directory()
+            raise
+
+    def _recover_with_fresh_directory(self):
+        """Recover from corrupted database by creating fresh persistence directory.
+        
+        This method:
+        1. Creates a new persistence directory with timestamp
+        2. Creates a fresh ChromaDB client against that directory
+        3. Creates a new collection
+        3. Rebuilds the index from the original JSONL dataset
+        4. Saves manifest only after successful indexing
+        """
+        import shutil
+        from datetime import datetime
+        
+        # Store old path for potential cleanup
+        old_persist_dir = self.persist_dir
+        
+        # Create fresh persistence directory with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        fresh_dir = Path(self.persist_dir).parent / f"{Path(self.persist_dir).name}_migrated_{timestamp}"
+        
+        self.logger.info(f"Creating fresh persistence directory: {fresh_dir}")
+        fresh_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Create fresh client with new directory
+        fresh_settings = self._get_chroma_settings()
+        fresh_client = chromadb.PersistentClient(
+            path=str(fresh_dir),
+            settings=fresh_settings
+        )
+        
+        # Create fresh collection
+        fresh_collection = fresh_client.create_collection(
+            name=self.collection_name,
+            metadata={"hnsw:space": "cosine"}
+        )
+        
+        # Update instance to use fresh client and collection
+        self.persist_dir = str(fresh_dir)
+        self.client = fresh_client
+        self.collection = fresh_collection
+        
+        self.logger.info(f"Migration complete. Fresh database ready at {fresh_dir}")
+        
+        # Trigger rebuild from source data
+        self.logger.info("Rebuilding index from source dataset...")
+        try:
+            from app.config import get_settings
+            from app.rag.document_builder import DocumentBuilder, load_rag_ready_records
+            
+            settings = get_settings()
+            rag_ready_path = f"{settings.PROCESSED_DATA_DIR}/darglobal_rag_ready.jsonl"
+            
+            records = load_rag_ready_records(rag_ready_path)
+            self.logger.info(f"Loaded {len(records)} RAG-ready records for rebuild")
+            
+            doc_builder = DocumentBuilder()
+            documents = doc_builder.build_documents(records)
+            
+            # Build index in fresh database
+            indexed_count = self.build_index(documents, rebuild=True)
+            
+            self.logger.success(
+                f"Migration recovery complete: rebuilt index with {indexed_count} documents "
+                f"from {len(records)} source records. Fresh database at {fresh_dir}"
+            )
+            
+            # Optionally clean up old corrupted directory (commented for safety)
+            # shutil.rmtree(old_persist_dir, ignore_errors=True)
+            
+        except Exception as e:
+            self.logger.error(f"Failed to rebuild index after migration: {e}")
+            # Restore original path on failure
+            self.persist_dir = old_persist_dir
+            raise
+        
+        return self.collection
 
     def _get_or_create_collection_with_migration(self):
         """Get or create collection with automatic migration for ChromaDB 0.5.x -> 1.x.
