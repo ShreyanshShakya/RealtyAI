@@ -8,7 +8,7 @@ RealtyAI is a Retrieval-Augmented Generation (RAG) application for discovering a
 
 The application is deployed on **Streamlit Community Cloud**.
 
-> Add the public Streamlit app URL here if you want visitors to open the live demo directly.
+> https://realtyai.streamlit.app/
 
 ## Features
 
