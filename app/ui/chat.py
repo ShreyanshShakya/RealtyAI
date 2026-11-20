@@ -364,7 +364,7 @@ def main():
                 st.session_state.pipeline_initialized = True
                 st.toast("RAG pipeline initialized successfully", icon="✅")
             except Exception as e:
-                logger.error(f"Pipeline initialization failed: {e}")
+                logger.exception("Pipeline initialization failed")
                 st.error(f"Failed to initialize RAG pipeline: {str(e)}")
                 st.stop()
     

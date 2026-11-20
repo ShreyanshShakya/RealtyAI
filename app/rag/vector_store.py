@@ -14,6 +14,13 @@ from app.config import get_settings
 from app.rag.document_builder import RagDocument
 from app.rag.embeddings import get_embedding_generator
 
+# ChromaDB version for logging
+try:
+    import chromadb
+    CHROMADB_VERSION = chromadb.__version__
+except Exception:
+    CHROMADB_VERSION = "unknown"
+
 
 @dataclass
 class IndexManifest:
@@ -52,13 +59,13 @@ class VectorStore:
         # Ensure persist directory exists
         Path(self.persist_dir).mkdir(parents=True, exist_ok=True)
         
+        # Configure ChromaDB settings with version-compatible telemetry disabling
+        chroma_settings = self._get_chroma_settings()
+        
         # Create client with persistent storage
         self.client = chromadb.PersistentClient(
             path=self.persist_dir,
-            settings=ChromaSettings(
-                anonymized_telemetry=False,
-                allow_reset=True
-            )
+            settings=chroma_settings
         )
         
         # Get or create collection
@@ -67,7 +74,19 @@ class VectorStore:
             metadata={"hnsw:space": "cosine"}
         )
         
-        self.logger.info(f"ChromaDB initialized: {self.collection_name} at {self.persist_dir}")
+        self.logger.info(f"ChromaDB {CHROMADB_VERSION} initialized: {self.collection_name} at {self.persist_dir}")
+
+    def _get_chroma_settings(self) -> ChromaSettings:
+        """Get ChromaDB settings with version-compatible telemetry configuration.
+        
+        ChromaDB 0.5.x uses posthog for telemetry (anonymized_telemetry=False works).
+        ChromaDB 1.x uses OpenTelemetry (anonymized_telemetry may not fully disable).
+        We use only the basic settings that work across versions.
+        """
+        return ChromaSettings(
+            anonymized_telemetry=False,
+            allow_reset=True
+        )
     
     def _compute_dataset_hash(self, filepath: str) -> str:
         """Compute SHA256 hash of dataset file for change detection."""
@@ -84,7 +103,16 @@ class VectorStore:
             try:
                 with open(manifest_path, "r") as f:
                     data = json.load(f)
+                # Handle missing schema_version for backward compatibility
+                if "schema_version" not in data:
+                    data["schema_version"] = 1
                 return IndexManifest(**data)
+            except TypeError as e:
+                # Handle '_type' KeyError or missing fields in manifest
+                if "_type" in str(e) or "missing" in str(e).lower():
+                    self.logger.warning(f"Manifest has incompatible format, will rebuild: {e}")
+                    return None
+                self.logger.warning(f"Failed to load manifest: {e}")
             except Exception as e:
                 self.logger.warning(f"Failed to load manifest: {e}")
         return None

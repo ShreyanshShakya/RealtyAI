@@ -9,7 +9,11 @@ pydantic==2.7.4
 pydantic-settings==2.3.3
 
 # RAG / Embeddings (Phase 2+)
+# chromadb 0.5.5 uses posthog for telemetry; 1.x uses opentelemetry (breaking changes)
+# Pin to 0.5.5 for compatibility with existing persisted database and code
 chromadb==0.5.5
+# posthog <6.0.0 required for chromadb 0.5.x telemetry compatibility
+posthog<6.0.0,>=2.4.0
 sentence-transformers==3.0.1
 
 # LLM / OpenRouter (Phase 3+)
