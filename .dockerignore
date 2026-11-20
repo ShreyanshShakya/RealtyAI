@@ -1,0 +1,47 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Data (large files - will be baked separately)
+dataset/raw/
+dataset/rejected/
+*.jsonl
+
+# Test
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Environment
+.env
+.env.local
+
+# Documentation
+*.md
+!README.md

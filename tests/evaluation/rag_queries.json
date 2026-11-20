@@ -1,0 +1,104 @@
+{
+  "evaluation_queries": [
+    {
+      "id": 1,
+      "query": "Tell me about The Astera",
+      "type": "project_specific",
+      "expected_projects": ["The Astera"],
+      "expected_behavior": "Provide description, location (Al Marjan Island, UAE), and source URL. Should not invent price.",
+      "should_refuse": false
+    },
+    {
+      "id": 2,
+      "query": "Show DarGlobal projects in Oman",
+      "type": "country_specific",
+      "expected_projects": ["Invest in Aida", "Trump Furnished Residences", "Fairway Villas", "Marriott Residences Aida, Oman", "The Great Escape", "The Great Escape 2", "Coastal Investment Villas", "Trump Cliff Villas", "Trump Golf Villas", "Sunrise Haven", "Trump International Simaisma, Qatar", "DarGlobal Mansions", "Darglobal mansions - Fendi Casa", "Trump Mansions"],
+      "expected_behavior": "List projects in Oman with locations and descriptions.",
+      "should_refuse": false
+    },
+    {
+      "id": 3,
+      "query": "Show projects in Riyadh",
+      "type": "city_specific",
+      "expected_projects": ["Trump Mansions", "DarGlobal Mansions", "Darglobal mansions - Fendi Casa", "Trump International Simaisma, Qatar"],
+      "expected_behavior": "List projects in Riyadh area (Rayana community).",
+      "should_refuse": false
+    },
+    {
+      "id": 4,
+      "query": "Show projects in the AIDA community",
+      "type": "community_specific",
+      "expected_projects": ["Invest in Aida", "Trump Furnished Residences", "Fairway Villas", "Marriott Residences Aida, Oman", "The Great Escape", "The Great Escape 2", "Coastal Investment Villas", "Trump Cliff Villas", "Trump Golf Villas", "Sunrise Haven"],
+      "expected_behavior": "List all AIDA projects in Muscat.",
+      "should_refuse": false
+    },
+    {
+      "id": 5,
+      "query": "Compare Trump International Hotel & Tower Dubai and W Residences",
+      "type": "project_comparison",
+      "expected_projects": ["Trump International Hotel & Tower Dubai", "W Residences"],
+      "expected_behavior": "Compare both Dubai projects using available data (location, description). Should not invent prices.",
+      "should_refuse": false
+    },
+    {
+      "id": 6,
+      "query": "What is the price of The Astera?",
+      "type": "missing_price",
+      "expected_projects": ["The Astera"],
+      "expected_behavior": "State that price is not available in the collected dataset. Provide description and source URL.",
+      "should_refuse": true
+    },
+    {
+      "id": 7,
+      "query": "Find three-bedroom properties in Dubai",
+      "type": "missing_bedrooms",
+      "expected_projects": ["Trump International Hotel & Tower Dubai", "W Residences", "Da Vinci Tower, Interiors by Pagani", "D-Villas At Jumeirah Golf Estates", "Urban Oasis by Missoni"],
+      "expected_behavior": "Explain that bedroom information is not available in the dataset.",
+      "should_refuse": true
+    },
+    {
+      "id": 8,
+      "query": "Is The Mulliner currently available for sale?",
+      "type": "availability_question",
+      "expected_projects": ["The Mulliner"],
+      "expected_behavior": "Explain that availability status is not available in the dataset.",
+      "should_refuse": true
+    },
+    {
+      "id": 9,
+      "query": "What is the weather like in Muscat?",
+      "type": "irrelevant_question",
+      "expected_projects": [],
+      "expected_behavior": "Explain this is outside the scope of real estate data.",
+      "should_refuse": true
+    },
+    {
+      "id": 10,
+      "query": "Tell me about Burj Khalifa",
+      "type": "unknown_project",
+      "expected_projects": [],
+      "expected_behavior": "Explain that Burj Khalifa is not in the DarGlobal dataset.",
+      "should_refuse": true
+    },
+    {
+      "id": 11,
+      "query": "Show me projects in Riyadh and Jeddah",
+      "type": "ambiguous_location",
+      "expected_projects": ["Trump Mansions", "DarGlobal Mansions", "Darglobal mansions - Fendi Casa", "Trump International Simaisma, Qatar", "La Collina", "Trump Tower Jeddah", "Padel Living Residences"],
+      "expected_behavior": "List projects in both cities, clearly distinguishing Riyadh (Rayana) vs Jeddah projects.",
+      "should_refuse": false
+    },
+    {
+      "id": 12,
+      "query": "Which projects have published price information?",
+      "type": "requires_multiple_projects",
+      "expected_projects": [],
+      "expected_behavior": "Explain that no projects in the dataset have verified price information.",
+      "should_refuse": true
+    }
+  ],
+  "metadata": {
+    "dataset": "DarGlobal RAG-ready (29 projects)",
+    "notes": "Wasalt data not available. All prices, bedrooms, bathrooms, and areas are missing from current dataset."
+  }
+}

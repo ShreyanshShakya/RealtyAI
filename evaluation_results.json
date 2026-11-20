@@ -1,0 +1,311 @@
+{
+  "summary": {
+    "total_queries": 12,
+    "refusal_accuracy": 0.5,
+    "avg_retrieval_recall": 0.87,
+    "citation_rate": 0.0,
+    "avg_retrieved_count": 3.5
+  },
+  "results": [
+    {
+      "query_id": 1,
+      "query": "Tell me about The Astera",
+      "type": "project_specific",
+      "should_refuse": false,
+      "refused": false,
+      "refusal_correct": true,
+      "retrieval_recall": 1.0,
+      "retrieved_count": 1,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "The Astera, Interiors by Aston Martin"
+      ],
+      "expected_titles": [
+        "The Astera"
+      ],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 2,
+      "query": "Show DarGlobal projects in Oman",
+      "type": "country_specific",
+      "should_refuse": false,
+      "refused": false,
+      "refusal_correct": true,
+      "retrieval_recall": 0.43,
+      "retrieved_count": 5,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "Fairway Villas",
+        "The Great Escape 2",
+        "Marriott Residences Aida, Oman",
+        "Invest in Aida",
+        "Sunrise Haven"
+      ],
+      "expected_titles": [
+        "Invest in Aida",
+        "Trump Furnished Residences",
+        "Fairway Villas",
+        "Marriott Residences Aida, Oman",
+        "The Great Escape",
+        "The Great Escape 2",
+        "Coastal Investment Villas",
+        "Trump Cliff Villas",
+        "Trump Golf Villas",
+        "Sunrise Haven",
+        "Trump International Simaisma, Qatar",
+        "DarGlobal Mansions",
+        "Darglobal mansions - Fendi Casa",
+        "Trump Mansions"
+      ],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 3,
+      "query": "Show projects in Riyadh",
+      "type": "city_specific",
+      "should_refuse": false,
+      "refused": false,
+      "refusal_correct": true,
+      "retrieval_recall": 0.75,
+      "retrieved_count": 3,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "DarGlobal Mansions",
+        "Trump Mansions",
+        "Darglobal mansions - Fendi Casa"
+      ],
+      "expected_titles": [
+        "Trump Mansions",
+        "DarGlobal Mansions",
+        "Darglobal mansions - Fendi Casa",
+        "Trump International Simaisma, Qatar"
+      ],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 4,
+      "query": "Show projects in the AIDA community",
+      "type": "community_specific",
+      "should_refuse": false,
+      "refused": false,
+      "refusal_correct": true,
+      "retrieval_recall": 0.5,
+      "retrieved_count": 5,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "Coastal Investment Villas",
+        "Trump Furnished Residences",
+        "Invest in Aida",
+        "Trump Cliff Villas",
+        "Fairway Villas"
+      ],
+      "expected_titles": [
+        "Invest in Aida",
+        "Trump Furnished Residences",
+        "Fairway Villas",
+        "Marriott Residences Aida, Oman",
+        "The Great Escape",
+        "The Great Escape 2",
+        "Coastal Investment Villas",
+        "Trump Cliff Villas",
+        "Trump Golf Villas",
+        "Sunrise Haven"
+      ],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 5,
+      "query": "Compare Trump International Hotel & Tower Dubai and W Residences",
+      "type": "project_comparison",
+      "should_refuse": false,
+      "refused": false,
+      "refusal_correct": true,
+      "retrieval_recall": 1.0,
+      "retrieved_count": 5,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "Trump International Hotel & Tower Dubai",
+        "Da Vinci Tower, Interiors by Pagani",
+        "W Residences",
+        "D-Villas At Jumeirah Golf Estates",
+        "Urban Oasis by Missoni"
+      ],
+      "expected_titles": [
+        "Trump International Hotel & Tower Dubai",
+        "W Residences"
+      ],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 6,
+      "query": "What is the price of The Astera?",
+      "type": "missing_price",
+      "should_refuse": true,
+      "refused": false,
+      "refusal_correct": false,
+      "retrieval_recall": 1.0,
+      "retrieved_count": 1,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "The Astera, Interiors by Aston Martin"
+      ],
+      "expected_titles": [
+        "The Astera"
+      ],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 7,
+      "query": "Find three-bedroom properties in Dubai",
+      "type": "missing_bedrooms",
+      "should_refuse": true,
+      "refused": false,
+      "refusal_correct": false,
+      "retrieval_recall": 1.0,
+      "retrieved_count": 5,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "W Residences",
+        "Da Vinci Tower, Interiors by Pagani",
+        "Trump International Hotel & Tower Dubai",
+        "D-Villas At Jumeirah Golf Estates",
+        "Urban Oasis by Missoni"
+      ],
+      "expected_titles": [
+        "Trump International Hotel & Tower Dubai",
+        "W Residences",
+        "Da Vinci Tower, Interiors by Pagani",
+        "D-Villas At Jumeirah Golf Estates",
+        "Urban Oasis by Missoni"
+      ],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 8,
+      "query": "Is The Mulliner currently available for sale?",
+      "type": "availability_question",
+      "should_refuse": true,
+      "refused": false,
+      "refusal_correct": false,
+      "retrieval_recall": 1.0,
+      "retrieved_count": 1,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "The Mulliner"
+      ],
+      "expected_titles": [
+        "The Mulliner"
+      ],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 9,
+      "query": "What is the weather like in Muscat?",
+      "type": "irrelevant_question",
+      "should_refuse": true,
+      "refused": false,
+      "refusal_correct": false,
+      "retrieval_recall": 1.0,
+      "retrieved_count": 5,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "Sunrise Haven",
+        "The Great Escape",
+        "The Great Escape 2",
+        "Invest in Aida",
+        "Coastal Investment Villas"
+      ],
+      "expected_titles": [],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 10,
+      "query": "Tell me about Burj Khalifa",
+      "type": "unknown_project",
+      "should_refuse": true,
+      "refused": false,
+      "refusal_correct": false,
+      "retrieval_recall": 1.0,
+      "retrieved_count": 5,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "Trump International Hotel & Tower Dubai",
+        "Da Vinci Tower, Interiors by Pagani",
+        "W Residences",
+        "Trump Mansions",
+        "Trump Tower Jeddah"
+      ],
+      "expected_titles": [],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 11,
+      "query": "Show me projects in Riyadh and Jeddah",
+      "type": "ambiguous_location",
+      "should_refuse": false,
+      "refused": false,
+      "refusal_correct": true,
+      "retrieval_recall": 0.71,
+      "retrieved_count": 5,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "Trump Tower Jeddah",
+        "La Collina",
+        "Padel Living Residences",
+        "DarGlobal Mansions",
+        "Trump Mansions"
+      ],
+      "expected_titles": [
+        "Trump Mansions",
+        "DarGlobal Mansions",
+        "Darglobal mansions - Fendi Casa",
+        "Trump International Simaisma, Qatar",
+        "La Collina",
+        "Trump Tower Jeddah",
+        "Padel Living Residences"
+      ],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    },
+    {
+      "query_id": 12,
+      "query": "Which projects have published price information?",
+      "type": "requires_multiple_projects",
+      "should_refuse": true,
+      "refused": false,
+      "refusal_correct": false,
+      "retrieval_recall": 1.0,
+      "retrieved_count": 1,
+      "has_citations": false,
+      "answer_length": 120,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "retrieved_titles": [
+        "Les Vagues by Elie Saab"
+      ],
+      "expected_titles": [],
+      "answer_preview": "I apologize, but I encountered an error generating a response: OpenRouter client not configured. Set OPENROUTER_API_KEY."
+    }
+  ]
+}

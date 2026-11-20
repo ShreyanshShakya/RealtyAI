@@ -1,0 +1,38 @@
+{
+  "overall_pass": true,
+  "tests": [
+    {
+      "test": "project_comparison",
+      "pass": true,
+      "titles": [
+        "Trump Tower Jeddah",
+        "The Astera, Interiors by Aston Martin"
+      ]
+    },
+    {
+      "test": "sidebar_filter_propagation",
+      "pass": true
+    },
+    {
+      "test": "complete_oman_listing",
+      "pass": true,
+      "count": 10
+    },
+    {
+      "test": "missing_price",
+      "pass": true
+    },
+    {
+      "test": "wasalt_unavailable",
+      "pass": true
+    },
+    {
+      "test": "unsupported_query",
+      "pass": true
+    },
+    {
+      "test": "source_attribution",
+      "pass": true
+    }
+  ]
+}

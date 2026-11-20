@@ -1,0 +1,74 @@
+{
+  "summary": {
+    "total_original_records": 64,
+    "rag_ready": 29,
+    "low_quality": 3,
+    "invalid": 0,
+    "non_project_excluded": 31,
+    "duplicates_merged": 1
+  },
+  "field_completeness": {
+    "rag_ready": {
+      "title": 100.0,
+      "source_url": 100.0,
+      "city": 89.7,
+      "district": 3.4,
+      "community": 62.1,
+      "country": 96.6,
+      "country_code": 96.6,
+      "description": 100.0,
+      "property_type": 27.6,
+      "price": 0.0,
+      "currency": 75.9,
+      "bedrooms": 0.0,
+      "bathrooms": 0.0,
+      "area": 0.0,
+      "amenities": 0.0,
+      "status": 0.0,
+      "image_url": 82.8
+    },
+    "low_quality": {
+      "title": 100.0,
+      "source_url": 100.0,
+      "city": 33.3,
+      "district": 0.0,
+      "community": 100.0,
+      "country": 33.3,
+      "country_code": 33.3,
+      "description": 33.3,
+      "property_type": 33.3,
+      "price": 0.0,
+      "currency": 33.3,
+      "bedrooms": 0.0,
+      "bathrooms": 0.0,
+      "area": 0.0,
+      "amenities": 0.0,
+      "status": 0.0,
+      "image_url": 33.3
+    }
+  },
+  "duplicates": [
+    {
+      "primary_url": "https://darglobal.co.uk/Trump-International-Hotel-Tower-Dubai",
+      "alternate_urls": [
+        "https://darglobal.co.uk/trump-international-hotel-and-tower-dubai"
+      ],
+      "title": "Trump International Hotel & Tower Dubai"
+    }
+  ],
+  "non_project_categories": {
+    "insights": 30,
+    "crypto": 1
+  },
+  "quality_distribution": {
+    "high": 0,
+    "medium": 28,
+    "low": 1
+  },
+  "warnings": [
+    "Price missing from all records",
+    "Property type missing from most records",
+    "Description length varies significantly",
+    "Some locations inferred from description text"
+  ]
+}

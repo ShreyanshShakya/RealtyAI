@@ -1,0 +1,198 @@
+2026-11-19 00:27:19.767 | INFO     | __main__:run_darglobal:23 - Starting DarGlobal scraper
+2026-11-19 00:27:19.768 | INFO     | app.scraper.base_scraper:scrape:107 - Starting DarGlobal scrape
+2026-11-19 00:27:19.769 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/sitemap.xml
+2026-11-19 00:27:23.394 | INFO     | app.scraper.base_scraper:scrape:110 - Discovered 86 URLs
+2026-11-19 00:27:23.395 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/aida-360
+2026-11-19 00:27:24.972 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/aida-360
+2026-11-19 00:27:24.973 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/aida-360
+2026-11-19 00:27:24.982 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/aston-martin-media
+2026-11-19 00:27:26.694 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/aston-martin-media
+2026-11-19 00:27:26.695 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/aston-martin-media
+2026-11-19 00:27:26.695 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/one-of-one
+2026-11-19 00:27:28.647 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/one-of-one
+2026-11-19 00:27:28.648 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/one-of-one
+2026-11-19 00:27:28.649 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/DarGlobal-exclusive-Off-Plan-Investment-Catalogue
+2026-11-19 00:27:31.538 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/DarGlobal-exclusive-Off-Plan-Investment-Catalogue
+2026-11-19 00:27:34.017 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/DarGlobal-exclusive-Off-Plan-Investment-Catalogue
+2026-11-19 00:27:34.672 | ERROR    | app.scraper.base_scraper:scrape:144 - Error scraping https://darglobal.co.uk/DarGlobal-exclusive-Off-Plan-Investment-Catalogue: 500 Server Error: Internal Server Error for url: https://darglobal.co.uk/DarGlobal-exclusive-Off-Plan-Investment-Catalogue
+2026-11-19 00:27:34.673 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/DarGlobal-Insignia-Card
+2026-11-19 00:27:37.326 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/DarGlobal-Insignia-Card
+2026-11-19 00:27:40.092 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/DarGlobal-Insignia-Card
+2026-11-19 00:27:40.936 | ERROR    | app.scraper.base_scraper:scrape:144 - Error scraping https://darglobal.co.uk/DarGlobal-Insignia-Card: 500 Server Error: Internal Server Error for url: https://darglobal.co.uk/DarGlobal-Insignia-Card
+2026-11-19 00:27:40.936 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/Invest-crypto
+2026-11-19 00:27:43.244 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/Invest-crypto
+2026-11-19 00:27:43.245 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/invest-in-aida
+2026-11-19 00:27:45.798 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/invest-in-aida
+2026-11-19 00:27:45.799 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/aida-trump-international-apartments
+2026-11-19 00:27:48.959 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/aida-trump-international-apartments
+2026-11-19 00:27:48.960 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/La-Collina
+2026-11-19 00:27:51.922 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/La-Collina
+2026-11-19 00:27:51.923 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/Trump-International-Hotel-Tower-Dubai
+2026-11-19 00:27:54.533 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/Trump-International-Hotel-Tower-Dubai
+2026-11-19 00:27:54.534 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/the-mulliner
+2026-11-19 00:27:56.922 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/the-mulliner
+2026-11-19 00:27:56.923 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/fairway-villas-aida-oman
+2026-11-19 00:28:00.791 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/fairway-villas-aida-oman
+2026-11-19 00:28:00.791 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/marriott-residences-aida-oman
+2026-11-19 00:28:04.631 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/marriott-residences-aida-oman
+2026-11-19 00:28:04.632 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/trump-tower-jeddah
+2026-11-19 00:28:07.965 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/trump-tower-jeddah
+2026-11-19 00:28:07.965 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/the-great-escape-1-aida-oman
+2026-11-19 00:28:11.128 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/the-great-escape-1-aida-oman
+2026-11-19 00:28:11.129 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/the-great-escape-2-aida-oman
+2026-11-19 00:28:14.069 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/the-great-escape-2-aida-oman
+2026-11-19 00:28:14.070 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/aida-coastal-investment-villas
+2026-11-19 00:28:17.064 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/aida-coastal-investment-villas
+2026-11-19 00:28:17.065 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/aida-trump-international-hotel
+2026-11-19 00:28:22.226 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/aida-trump-international-hotel
+2026-11-19 00:28:22.226 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/aida-trump-international-cliff-villas
+2026-11-19 00:28:25.235 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/aida-trump-international-cliff-villas
+2026-11-19 00:28:25.235 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/aida-trump-villas
+2026-11-19 00:28:28.018 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/aida-trump-villas
+2026-11-19 00:28:28.018 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/Sunrise-Haven-Luxury-Villas
+2026-11-19 00:28:30.619 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/Sunrise-Haven-Luxury-Villas
+2026-11-19 00:28:30.620 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/les-vagues
+2026-11-19 00:28:33.234 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/les-vagues
+2026-11-19 00:28:33.234 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/tierra-viva
+2026-11-19 00:28:36.708 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/tierra-viva
+2026-11-19 00:28:36.708 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/w-residences
+2026-11-19 00:28:40.121 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/w-residences
+2026-11-19 00:28:40.122 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/davinci-tower-by-pagani
+2026-11-19 00:28:43.575 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/davinci-tower-by-pagani
+2026-11-19 00:28:43.576 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/trump-international-hotel-and-tower-dubai
+2026-11-19 00:28:46.385 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/trump-international-hotel-and-tower-dubai
+2026-11-19 00:28:46.385 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/d-villas-at-jge
+2026-11-19 00:28:49.941 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/d-villas-at-jge
+2026-11-19 00:28:49.941 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/urban-oasis-by-missoni
+2026-11-19 00:28:53.634 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/urban-oasis-by-missoni
+2026-11-19 00:28:53.634 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/the-astera
+2026-11-19 00:28:56.059 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/the-astera
+2026-11-19 00:28:56.059 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/one-of-one/one-of-one-unlisted-by-pagani
+2026-11-19 00:28:59.974 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/one-of-one/one-of-one-unlisted-by-pagani
+2026-11-19 00:28:59.975 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/one-of-one/project-pagani
+2026-11-19 00:29:04.424 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/one-of-one/project-pagani
+2026-11-19 00:29:04.424 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/one-of-one/THE-ALBERT-HALL-MANSION
+2026-11-19 00:29:07.661 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/one-of-one/THE-ALBERT-HALL-MANSION
+2026-11-19 00:29:07.662 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/one-of-one/painite-villas-design-inspired-by-Automobili-Lamborghini
+2026-11-19 00:29:10.595 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/one-of-one/painite-villas-design-inspired-by-Automobili-Lamborghini
+2026-11-19 00:29:10.595 | DEBUG    | app.scraper.base_scraper:scrape:114 - Skipping duplicate: https://darglobal.co.uk/one-of-one
+2026-11-19 00:29:10.595 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/one-of-one/top-of-the-astera
+2026-11-19 00:29:15.994 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/one-of-one/top-of-the-astera
+2026-11-19 00:29:15.995 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/one-of-one/trump-penthouse
+2026-11-19 00:29:18.950 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/one-of-one/trump-penthouse
+2026-11-19 00:29:18.951 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/one-of-one/fendi-casa-azure-oceanfront-villas
+2026-11-19 00:29:23.812 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/one-of-one/fendi-casa-azure-oceanfront-villas
+2026-11-19 00:29:23.813 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/rayana/trump-mansions
+2026-11-19 00:29:27.056 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/rayana/trump-mansions
+2026-11-19 00:29:27.057 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/rayana/trump-international-qatar
+2026-11-19 00:29:29.963 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/rayana/trump-international-qatar
+2026-11-19 00:29:29.964 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/rayana/darglobal-mansions
+2026-11-19 00:29:32.989 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/rayana/darglobal-mansions
+2026-11-19 00:29:32.989 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/rayana/darglobal-mansions-fendi-casa
+2026-11-19 00:29:35.447 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/rayana/darglobal-mansions-fendi-casa
+2026-11-19 00:29:35.447 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/amaya/amaya-plots
+2026-11-19 00:29:38.002 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/amaya/amaya-plots
+2026-11-19 00:29:38.003 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/amaya/padel-living
+2026-11-19 00:29:41.177 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/amaya/padel-living
+2026-11-19 00:29:41.177 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/trump-plaza/executive-residences
+2026-11-19 00:29:43.643 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/trump-plaza/executive-residences
+2026-11-19 00:29:43.643 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/trump-plaza/park-residences
+2026-11-19 00:29:46.146 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/trump-plaza/park-residences
+2026-11-19 00:29:46.147 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/global-citizenship-dual-residency-communities
+2026-11-19 00:29:49.053 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/global-citizenship-dual-residency-communities
+2026-11-19 00:29:49.054 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/oman-gated-communities-high-altitude
+2026-11-19 00:29:52.031 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/oman-gated-communities-high-altitude
+2026-11-19 00:29:52.032 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/luxury-golf-villas-muscat-branded
+2026-11-19 00:29:54.504 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/luxury-golf-villas-muscat-branded
+2026-11-19 00:29:54.505 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/luxury-second-homes-saudi-residency
+2026-11-19 00:29:57.257 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/luxury-second-homes-saudi-residency
+2026-11-19 00:29:57.258 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/oman-golden-visa-sea-view-homes
+2026-11-19 00:30:00.014 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/oman-golden-visa-sea-view-homes
+2026-11-19 00:30:00.015 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/149-old-park-lane-luxury-london
+2026-11-19 00:30:03.403 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/149-old-park-lane-luxury-london
+2026-11-19 00:30:03.403 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/capital-appreciation-developer-ras-al-khaimah
+2026-11-19 00:30:06.267 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/capital-appreciation-developer-ras-al-khaimah
+2026-11-19 00:30:06.267 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/crypto-tokenized-luxury-developer
+2026-11-19 00:30:11.181 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/crypto-tokenized-luxury-developer
+2026-11-19 00:30:11.182 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/transparent-financials-dubai-off-plan
+2026-11-19 00:30:13.919 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/transparent-financials-dubai-off-plan
+2026-11-19 00:30:13.920 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/safe-luxury-developer-oman
+2026-11-19 00:30:16.287 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/safe-luxury-developer-oman
+2026-11-19 00:30:16.288 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/supercar-designed-penthouses-uae
+2026-11-19 00:30:18.509 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/supercar-designed-penthouses-uae
+2026-11-19 00:30:18.510 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/elie-saab-branded-apartments-qatar
+2026-11-19 00:30:21.108 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/elie-saab-branded-apartments-qatar
+2026-11-19 00:30:21.108 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/tokenized-fractional-luxury-hotels-me
+2026-11-19 00:30:23.894 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/tokenized-fractional-luxury-hotels-me
+2026-11-19 00:30:23.894 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/automotive-designed-vacation-homes-benahavis
+2026-11-19 00:30:26.434 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/automotive-designed-vacation-homes-benahavis
+2026-11-19 00:30:26.434 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/lse-listed-developer-dubai
+2026-11-19 00:30:30.129 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/lse-listed-developer-dubai
+2026-11-19 00:30:30.129 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/mouawad-branded-villas-riyadh
+2026-11-19 00:30:33.022 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/mouawad-branded-villas-riyadh
+2026-11-19 00:30:33.023 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/premiere-architectural-landmarks-dubai
+2026-11-19 00:30:35.856 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/premiere-architectural-landmarks-dubai
+2026-11-19 00:30:35.857 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/trump-international-hotel-dubai
+2026-11-19 00:30:38.718 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/trump-international-hotel-dubai
+2026-11-19 00:30:38.719 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/pagani-interiors-villas-dubai
+2026-11-19 00:30:42.802 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/pagani-interiors-villas-dubai
+2026-11-19 00:30:42.802 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/w-residences-downtown-dubai
+2026-11-19 00:30:45.912 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/w-residences-downtown-dubai
+2026-11-19 00:30:45.913 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/missoni-branded-residences-costa-del-sol
+2026-11-19 00:30:48.201 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/missoni-branded-residences-costa-del-sol
+2026-11-19 00:30:48.201 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/aston-martin-interiors-apartments-ras-al-khaimah
+2026-11-19 00:30:50.456 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/aston-martin-interiors-apartments-ras-al-khaimah
+2026-11-19 00:30:50.457 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/trump-partnered-projects-oman
+2026-11-19 00:30:52.559 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/trump-partnered-projects-oman
+2026-11-19 00:30:52.560 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/twisting-residential-towers-dubai-business-bay
+2026-11-19 00:30:55.729 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/twisting-residential-towers-dubai-business-bay
+2026-11-19 00:30:55.730 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/insights/lamborghini-inspired-villas-spain
+2026-11-19 00:30:58.798 | DEBUG    | app.scraper.base_scraper:scrape:136 - Scraped: https://darglobal.co.uk/insights/lamborghini-inspired-villas-spain
+2026-11-19 00:30:58.798 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-uae/villas
+2026-11-19 00:31:03.214 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-uae/villas
+2026-11-19 00:31:03.215 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-uae/villas
+2026-11-19 00:31:03.215 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-uk/apartments
+2026-11-19 00:31:06.791 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-uk/apartments
+2026-11-19 00:31:06.791 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-uk/apartments
+2026-11-19 00:31:06.792 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-spain/villas
+2026-11-19 00:31:10.792 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-spain/villas
+2026-11-19 00:31:10.792 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-spain/villas
+2026-11-19 00:31:10.793 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-oman/apartments
+2026-11-19 00:31:15.440 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-oman/apartments
+2026-11-19 00:31:15.441 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-oman/apartments
+2026-11-19 00:31:15.442 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-qatar/villas
+2026-11-19 00:31:18.964 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-qatar/villas
+2026-11-19 00:31:18.964 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-qatar/villas
+2026-11-19 00:31:18.965 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-uae
+2026-11-19 00:31:21.939 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-uae
+2026-11-19 00:31:21.939 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-uae
+2026-11-19 00:31:21.940 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-uk
+2026-11-19 00:31:24.617 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-uk
+2026-11-19 00:31:24.617 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-uk
+2026-11-19 00:31:24.618 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-saudi-arabia
+2026-11-19 00:31:27.559 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-saudi-arabia
+2026-11-19 00:31:27.560 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-saudi-arabia
+2026-11-19 00:31:27.560 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-oman
+2026-11-19 00:31:30.399 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-oman
+2026-11-19 00:31:30.399 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-oman
+2026-11-19 00:31:30.400 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-qatar
+2026-11-19 00:31:33.440 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-qatar
+2026-11-19 00:31:33.440 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-qatar
+2026-11-19 00:31:33.441 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-spain
+2026-11-19 00:31:36.855 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-spain
+2026-11-19 00:31:36.856 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-spain
+2026-11-19 00:31:36.856 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-saudi-arabia/villas
+2026-11-19 00:31:40.650 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-saudi-arabia/villas
+2026-11-19 00:31:40.652 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-saudi-arabia/villas
+2026-11-19 00:31:40.653 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-saudi-arabia/apartments
+2026-11-19 00:31:44.722 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-saudi-arabia/apartments
+2026-11-19 00:31:44.722 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-saudi-arabia/apartments
+2026-11-19 00:31:44.723 | DEBUG    | app.scraper.base_scraper:scrape:114 - Skipping duplicate: https://darglobal.co.uk/rayana/trump-mansions
+2026-11-19 00:31:44.723 | DEBUG    | app.scraper.base_scraper:scrape:114 - Skipping duplicate: https://darglobal.co.uk/amaya/amaya-plots
+2026-11-19 00:31:44.724 | DEBUG    | app.scraper.base_scraper:fetch:56 - Fetching: https://darglobal.co.uk/projects/properties-in-oman/hotel-rooms
+2026-11-19 00:31:49.441 | WARNING  | app.scraper.darglobal:parse_detail:146 - No title found for https://darglobal.co.uk/projects/properties-in-oman/hotel-rooms
+2026-11-19 00:31:49.442 | WARNING  | app.scraper.base_scraper:scrape:138 - Failed to parse: https://darglobal.co.uk/projects/properties-in-oman/hotel-rooms
+2026-11-19 00:31:49.443 | INFO     | app.scraper.base_scraper:scrape:146 - Completed DarGlobal: 64 records
+2026-11-19 00:31:49.449 | INFO     | app.scraper.base_scraper:save_jsonl:159 - Saved 64 records to dataset\raw\darglobal_raw.jsonl
+2026-11-19 00:31:49.450 | SUCCESS  | __main__:run_darglobal:32 - DarGlobal: 64 records saved to dataset\raw\darglobal_raw.jsonl
+2026-11-19 00:31:49.452 | SUCCESS  | __main__:main:75 - Total records scraped: 64

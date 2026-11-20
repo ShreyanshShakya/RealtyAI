@@ -1,0 +1,11 @@
+2026-11-19 00:44:00.236 | INFO     | __main__:run_wasalt:40 - Starting Wasalt scraper
+2026-11-19 00:44:00.238 | INFO     | app.scraper.base_scraper:scrape:107 - Starting Wasalt scrape
+2026-11-19 00:44:11.885 | WARNING  | app.scraper.wasalt:discover_urls:69 - Failed to parse sitemap https://cdn.wasalt.sa/sitemap/product_sitemap_en_sa.xml.gz: Not a gzipped file (b'<?')
+2026-11-19 00:44:11.962 | WARNING  | app.scraper.wasalt:discover_urls:69 - Failed to parse sitemap https://cdn.wasalt.sa/sitemap/rental_pdp_sitemap_en_sa.xml.gz: Not a gzipped file (b'<?')
+2026-11-19 00:44:23.542 | WARNING  | app.scraper.wasalt:discover_urls:69 - Failed to parse sitemap https://cdn.wasalt.sa/sitemap/product_sitemap_ar_sa.xml.gz: Not a gzipped file (b'<?')
+2026-11-19 00:44:23.635 | WARNING  | app.scraper.wasalt:discover_urls:69 - Failed to parse sitemap https://cdn.wasalt.sa/sitemap/rental_pdp_sitemap_ar_sa.xml.gz: Not a gzipped file (b'<?')
+2026-11-19 00:44:23.636 | INFO     | app.scraper.base_scraper:scrape:110 - Discovered 0 URLs
+2026-11-19 00:44:23.636 | INFO     | app.scraper.base_scraper:scrape:146 - Completed Wasalt: 0 records
+2026-11-19 00:44:23.638 | INFO     | app.scraper.base_scraper:save_jsonl:159 - Saved 0 records to dataset\raw\wasalt_raw.jsonl
+2026-11-19 00:44:23.639 | SUCCESS  | __main__:run_wasalt:49 - Wasalt: 0 records saved to dataset\raw\wasalt_raw.jsonl
+2026-11-19 00:44:23.640 | SUCCESS  | __main__:main:75 - Total records scraped: 0

@@ -1,0 +1,10 @@
+{
+  "collection_name": "realtyai_projects",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "dataset_file": "dataset/processed/darglobal_rag_ready.jsonl",
+  "dataset_hash": "f98d5c60fda45084e4827f860ae3fe424a85ea5ae88871bdbd8c80d7087dbf14",
+  "document_count": 29,
+  "build_timestamp": 1795166107.9451957,
+  "schema_version": 1
+}

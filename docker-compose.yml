@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  realty-ai:
+    build: .
+    ports:
+      - "7860:7860"
+    environment:
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - OPENROUTER_MODEL=${OPENROUTER_MODEL:-nvidia/nemotron-3-ultra-550b-a55b:free}
+      - OPENROUTER_FALLBACK_MODEL=${OPENROUTER_FALLBACK_MODEL:-openrouter/free}
+      - CHROMA_DB_PATH=dataset/chroma_db
+      - CHROMA_COLLECTION=realtyai_projects
+      - PROCESSED_DATA_DIR=dataset/processed
+    volumes:
+      - ./dataset:/app/dataset
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  # Optional: Run scrapers as one-off jobs
+  scraper:
+    build: .
+    command: python scripts/scrape.py --source both --output dataset/raw
+    environment:
+      - REQUEST_DELAY=1.5
+      - REQUEST_JITTER=0.5
+    volumes:
+      - ./dataset:/app/dataset
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+    profiles:
+      - scraping
+
+  validator:
+    build: .
+    command: python scripts/validate.py --source both --raw-dir dataset/raw --processed-dir dataset/processed --rejected-dir dataset/rejected
+    volumes:
+      - ./dataset:/app/dataset
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+    profiles:
+      - scraping
