@@ -1,6 +1,8 @@
 """RAG Pipeline orchestration for RealtyAI."""
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
+from pathlib import Path
+from threading import RLock
 from loguru import logger
 
 from app.config import get_settings
@@ -42,32 +44,44 @@ class RAGPipeline:
         self.query_parser = QueryParser()
         
         self.logger = logger.bind(component="RAGPipeline")
+        self._initialize_lock = RLock()
+        self._ask_lock = RLock()
+        self._initialized = False
     
     def initialize(self, rebuild_index: bool = False) -> int:
-        """Initialize the pipeline by building/loading the index."""
-        self.logger.info("Initializing RAG pipeline...")
-        
-        # Load RAG-ready records
-        settings = get_settings()
-        rag_ready_path = f"{settings.PROCESSED_DATA_DIR}/darglobal_rag_ready.jsonl"
-        records = load_rag_ready_records(rag_ready_path)
-        self.logger.info(f"Loaded {len(records)} RAG-ready records")
-        
-        # Build documents
-        documents = self.document_builder.build_documents(records)
-        
-        # Build or load index
-        if rebuild_index or self.vector_store.needs_rebuild("dataset/processed/darglobal_rag_ready.jsonl"):
-            self.logger.info("Building new index...")
-            indexed_count = self.vector_store.build_index(documents, rebuild=True)
-        else:
-            self.logger.info("Using existing index")
-            indexed_count = self.vector_store.get_collection_stats()["document_count"]
-        
-        self.logger.success(f"RAG pipeline initialized with {indexed_count} indexed documents")
-        return indexed_count
-    
+        """Initialize the index once; repeated calls are safe and inexpensive."""
+        with self._initialize_lock:
+            if self._initialized and not rebuild_index:
+                return self.vector_store.get_collection_stats()["document_count"]
+
+            settings = get_settings()
+            rag_ready_path = Path(settings.PROCESSED_DATA_DIR) / "darglobal_rag_ready.jsonl"
+            if not rag_ready_path.is_file():
+                raise FileNotFoundError(f"RAG-ready dataset not found: {rag_ready_path}")
+
+            self.logger.info("Loading RAG-ready dataset from %s", rag_ready_path)
+            records = load_rag_ready_records(str(rag_ready_path))
+            if not records:
+                raise ValueError(f"RAG-ready dataset is empty: {rag_ready_path}")
+
+            documents = self.document_builder.build_documents(records)
+            if rebuild_index or self.vector_store.needs_rebuild(str(rag_ready_path)):
+                self.logger.info("Building vector index...")
+                indexed_count = self.vector_store.build_index(documents, rebuild=True)
+            else:
+                self.logger.info("Using existing vector index")
+                indexed_count = self.vector_store.get_collection_stats()["document_count"]
+
+            self._initialized = True
+            self.logger.success("RAG pipeline initialized with %s indexed documents", indexed_count)
+            return indexed_count
+
     def ask(self, question: str, filters: Optional[Dict[str, Any]] = None) -> RAGResponse:
+        """Serialize query execution around shared mutable retrieval configuration."""
+        with self._ask_lock:
+            return self._ask_unlocked(question, filters)
+
+    def _ask_unlocked(self, question: str, filters: Optional[Dict[str, Any]] = None) -> RAGResponse:
         """Process a user question through the full RAG pipeline."""
         self.logger.info(f"Processing question: {question}")
         
@@ -118,7 +132,7 @@ class RAGPipeline:
             sources=sources,
             retrieved_documents=[self._format_retrieved_doc(d) for d in retrieved_docs],
             filters_applied=context.filters_applied,
-            model=self.openrouter_client.model,
+            model=getattr(self.openrouter_client, "model", ""),
             retrieval_count=context.retrieval_count,
             context_length=len(context.context_text),
             query_type=query_type

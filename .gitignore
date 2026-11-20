@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and secrets
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
+
+# Runtime logs and generated reports
+*.log
+logs/*
+!logs/.gitkeep
+evaluation_results.json
+reports/*
+!reports/.gitkeep
+
+# Local vector database (rebuild from the tracked JSONL source)
+dataset/chroma_db/
+**/chroma.sqlite3
+**/*.bin
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
