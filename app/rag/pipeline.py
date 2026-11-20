@@ -183,22 +183,25 @@ class RAGPipeline:
         question_lower = question.lower()
         
         # Comparison queries
-        if any(phrase in question.lower() for phrase in [
+        if any(phrase in question_lower for phrase in [
             "compare", "vs", "versus", "difference between", "which is better",
             "compare and contrast"
         ]):
             return "comparison"
         
-        # Listing queries
-        if any(phrase in question.lower() for phrase in [
+        # Listing queries - expanded to include natural language listing requests
+        if any(phrase in question_lower for phrase in [
             "list all", "show all", "what projects", "which projects",
             "projects in", "show projects", "all projects", "list projects",
-            "give me all", "display all"
+            "give me all", "display all",
+            "find projects", "find ", "search for", "looking for projects",
+            "what residential", "what luxury", "what commercial", "what properties",
+            "available projects", "available properties"
         ]):
             return "listing"
         
         # Detail queries (specific project)
-        if any(phrase in question.lower() for phrase in [
+        if any(phrase in question_lower for phrase in [
             "tell me about", "describe", "details of", "information about",
             "what is", "what's"
         ]):
@@ -362,6 +365,13 @@ class RAGPipeline:
         """Generate answer using LLM with context."""
         
         if query_type == "listing":
+            # Check if user asks for property type classification not in dataset
+            question_lower = question.lower()
+            asks_property_classification = any(term in question_lower for term in [
+                "luxury residential", "residential projects", "commercial projects",
+                "luxury projects", "residential", "commercial", "villa", "apartment"
+            ])
+            
             user_prompt = f"""Question: {question}
 
 Context from retrieved documents:
@@ -377,6 +387,9 @@ Instructions:
 - Do not use external knowledge.
 - If asked about specific details not in context (price, bedrooms, area), say the information is not available in the collected dataset.
 """
+            # Add note about property classification limitations
+            if asks_property_classification:
+                user_prompt += "\nNOTE: The dataset does not contain a reliable property classification field (property_type is missing for most records). Do not filter or categorize projects as residential/commercial/luxury based on external knowledge. Present all matching projects with their available metadata only."
         elif query_type == "comparison":
             user_prompt = f"""Question: {question}
 

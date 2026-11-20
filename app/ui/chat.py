@@ -144,10 +144,9 @@ def render_sidebar():
         # Status indicator
         if st.session_state.pipeline_initialized:
             if os.environ.get("OPENROUTER_API_KEY"):
-                st.success("🟢 Full RAG Mode — AI answers with retrieved sources")
+                st.success("🟢 RAG Mode — AI answers with retrieved sources")
             else:
-                st.warning("🟡 Offline Retrieval Mode — Project search available; AI answers disabled")
-                st.caption("Set OPENROUTER_API_KEY to enable AI answers")
+                st.info("🔍 Retrieval Mode — Project search available (OpenRouter not configured)")
         else:
             st.info("🔄 Initializing pipeline...")
         
@@ -266,7 +265,7 @@ def render_chat():
         process_question(question)
     
     # Chat input
-    if prompt := st.chat_input("Ask about DarGlobal or Wasalt properties..."):
+    if prompt := st.chat_input("Ask about DarGlobal projects..."):
         process_question(prompt)
 
 
@@ -279,7 +278,7 @@ def process_question(question: str):
     # Add user message
     st.session_state.messages.append({"role": "user", "content": question})
     
-    # Get pipeline and process
+    # Get pipeline from session state (already initialized at startup)
     pipeline = st.session_state.rag_pipeline
     
     with st.chat_message("assistant"):
@@ -341,7 +340,7 @@ def render_header():
         st.title("🏠 RealtyAI")
         st.caption("AI-powered Real Estate Discovery Assistant")
     with col2:
-        st.caption("Data: DarGlobal · Wasalt")
+        st.caption("Data: DarGlobal")
 
 
 def main():
@@ -355,6 +354,19 @@ def main():
     
     # Initialize session state
     init_session_state()
+    
+    # Initialize RAG pipeline at startup (only once per session)
+    if not st.session_state.pipeline_initialized:
+        with st.spinner("Initializing RAG pipeline... Loading embedding model and ChromaDB index..."):
+            try:
+                pipeline = get_pipeline()
+                st.session_state.rag_pipeline = pipeline
+                st.session_state.pipeline_initialized = True
+                st.toast("RAG pipeline initialized successfully", icon="✅")
+            except Exception as e:
+                logger.error(f"Pipeline initialization failed: {e}")
+                st.error(f"Failed to initialize RAG pipeline: {str(e)}")
+                st.stop()
     
     # Render header
     render_header()
