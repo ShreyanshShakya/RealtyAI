@@ -212,36 +212,6 @@ class VectorStore:
         
         return self.collection
 
-    def _get_or_create_collection_with_migration(self):
-        """Get or create collection with automatic migration for ChromaDB 0.5.x -> 1.x.
-        
-        Handles the KeyError: '_type' migration issue when loading collections
-        created with ChromaDB 0.5.x that have empty metadata config.
-        """
-        try:
-            return self.client.get_or_create_collection(
-                name=self.collection_name,
-                metadata={"hnsw:space": "cosine"}
-            )
-        except KeyError as e:
-            if "_type" in str(e):
-                self.logger.warning(
-                    f"ChromaDB migration detected: collection '{self.collection_name}' "
-                    f"has incompatible metadata format (missing '_type'). "
-                    f"Resetting collection and rebuilding from source data."
-                )
-                # Delete the old collection with incompatible metadata
-                try:
-                    self.client.delete_collection(name=self.collection_name)
-                except Exception:
-                    pass  # Collection might not exist or already deleted
-                
-                # Create fresh collection
-                return self.client.create_collection(
-                    name=self.collection_name,
-                    metadata={"hnsw:space": "cosine"}
-                )
-            raise
 
     def _get_chroma_settings(self) -> ChromaSettings:
         """Get ChromaDB settings with version-compatible telemetry configuration.
