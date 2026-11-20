@@ -81,12 +81,19 @@ def init_session_state():
         st.session_state.community_filter = "All"
 
 
+@st.cache_resource(show_spinner=False)
+def get_shared_pipeline() -> RAGPipeline:
+    """Create one process-wide pipeline and reuse its model/database resources."""
+    pipeline = get_rag_pipeline()
+    pipeline.initialize()
+    return pipeline
+
+
 def get_pipeline() -> RAGPipeline:
-    """Get or initialize RAG pipeline."""
+    """Get the cached process-wide pipeline for this Streamlit session."""
     if st.session_state.rag_pipeline is None:
-        with st.spinner("Initializing RAG pipeline..."):
-            st.session_state.rag_pipeline = get_rag_pipeline()
-            st.session_state.rag_pipeline.initialize()
+        with st.spinner("Initializing shared RAG pipeline..."):
+            st.session_state.rag_pipeline = get_shared_pipeline()
             st.session_state.pipeline_initialized = True
     return st.session_state.rag_pipeline
 

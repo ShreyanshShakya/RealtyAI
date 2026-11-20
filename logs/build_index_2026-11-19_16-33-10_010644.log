@@ -1,5 +1,0 @@
-2026-11-19 16:33:10.013 | INFO     | __main__:main:33 - Starting index build process
-2026-11-19 16:33:10.014 | INFO     | __main__:main:34 - Source: darglobal, Rebuild: True
-2026-11-19 16:33:10.017 | INFO     | __main__:main:46 - Loading records from dataset\processed\darglobal_rag_ready.jsonl
-2026-11-19 16:33:10.020 | INFO     | __main__:main:48 - Loaded 29 RAG-ready records
-2026-11-19 16:33:10.021 | INFO     | __main__:main:58 - Building documents...

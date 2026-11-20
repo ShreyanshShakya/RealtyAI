@@ -1,47 +1,38 @@
-# Git
+# Git and tooling
 .git
 .gitignore
-
-# Python
-__pycache__
-*.pyc
-*.pyo
-*.pyd
-.Python
-venv/
-env/
-*.egg-info/
-dist/
-build/
-
-# IDE
+.github/
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-logs/
-*.log
-
-# Data (large files - will be baked separately)
-dataset/raw/
-dataset/rejected/
-*.jsonl
-
-# Test
-.coverage
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
 .pytest_cache/
+.coverage
 htmlcov/
 
-# Environment
+# Secrets and local state
 .env
-.env.local
+.env.*
+!.env.example
+dataset/chroma_db/
+logs/
+*.log
+evaluation_results.json
 
-# Documentation
+# Raw/rejected crawl data is not required to run the app.
+dataset/raw/
+dataset/rejected/
+dataset/excluded/
+
+# Keep the processed RAG-ready dataset in the image.
+dataset/processed/*
+!dataset/processed/darglobal_rag_ready.jsonl
+
+# Keep README, but omit other documentation from image context.
 *.md
 !README.md
