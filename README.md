@@ -323,6 +323,4 @@ Answers depend on the records retrieved from the current dataset. If a field is 
 - Preserve source URLs so users can inspect the original project information.
 - Validate and review scraped records before adding them to the RAG index.
 
-## License
 
-No license is specified in this repository. Unless a license is added, the code is not granted an explicit open-source reuse license.
